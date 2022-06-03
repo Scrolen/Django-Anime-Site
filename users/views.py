@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .forms import UserRegisterForm
 from anime.models import WatchList
@@ -19,8 +20,12 @@ def register(request):
             messages.success(request, f'Account created for {username}.')
             newUser = User.objects.get(username = username)
             list = WatchList.objects.create(user = newUser)
-            return redirect('anime-home')
+            return redirect('login')
 
     else:
         form = UserRegisterForm()
     return render(request, 'users/register.html',{'form':form})
+
+@login_required #this is a decorator, makes the user have to be logged in to use the view. different in class based views
+def profile(request):
+    return render(request, 'users/profile.html')

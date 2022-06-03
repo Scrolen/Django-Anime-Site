@@ -6,16 +6,16 @@
         <form method="POST">
             {% csrf_token %}
             <fieldset>
-                <legend>Register</legend>
+                <legend>Login</legend>
                 {{ form|crispy }}
             </fieldset>
             <div>
-                <button type="submit">Sign Up</button>
+                <button class="btn" type="submit">Login</button>
             </div>
         </form>
         <div>
             <small>
-                Already Have An Account? <a href="{% url 'login' %}">Login</a>
+                <a href="{% url 'register' %}">Register</a>
             </small>
         </div>
     </div>
