@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <li>{{ anime.name }}</li>
+    <li>{{ anime.description }}</li>
+    <li>{{ anime.user_count }}</li>
+    <li>{{ anime.episodes }}</li>
+    <li>{{ anime.genres.all }}</li>
+    <img src={{ object.image.url }}>
+
+    {% if user.is_authenticated %}
+        {% if anime in user.watchlist.watched.all %}
+            <form method="POST" action="{% url 'watchlist-delete' anime.pk %}">
+                {% csrf_token %} <button type="submit">Remove from watch list</button>
+            </form>
+        {% else %}
+            <form method="POST" action="{% url 'watchlist-add' anime.pk %}">
+                {% csrf_token %} <button type="submit">Add to Watch List</button>
+            </form>
+        {% endif %}        
+
+    {% endif %}
+
+
+{% endblock content %}
