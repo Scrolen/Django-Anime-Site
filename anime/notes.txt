@@ -12,3 +12,14 @@ Out[23]: <QuerySet [<Anime: Bleach>, <Anime: Code Geass>, <Anime: Attack On Tita
 
 genre.anime_set.first()
 Out[22]: <Anime: Bleach>
+
+
+
+TO DO--------------------------------
+-case insensitive username
+-landing page
+-front page
+-pagination
+-user settings page
+- anime search
+-search by multiple GENRES
