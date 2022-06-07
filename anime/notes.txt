@@ -1,0 +1,14 @@
+
+
+
+admin.watchlist.watched.all()
+
+
+
+GENRES---------------------------
+genre.anime_set.all()
+Out[23]: <QuerySet [<Anime: Bleach>, <Anime: Code Geass>, <Anime: Attack On Titan>, <Anime: Akame Ga Kill>]>
+
+
+genre.anime_set.first()
+Out[22]: <Anime: Bleach>

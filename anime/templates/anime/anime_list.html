@@ -3,13 +3,10 @@
 {% block content %}
     <h2>Anime</h2>
     <ul>
-        {% for anime in object_list %}
-        <a href="{% url 'anime-detail' anime.pk %}">
+        {% for anime in anime_set %}
+        <a href="{% url 'anime-detail' anime.slug %}">
             <li>{{ anime.name }}</li>
         </a>
-            <form method="POST" action="{% url 'anime-delete' anime.pk %}">
-                {% csrf_token %} <button type="submit">Delete</button>
-            </form>
         {% endfor %}
     </ul>
 {% endblock content %}

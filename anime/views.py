@@ -5,16 +5,18 @@ from django.views.generic import ListView, DeleteView, DetailView
 from django.contrib.auth.decorators import login_required
 
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .models import Anime
+from .models import Anime, Genre
 # Create your views here.
 
 
 class AnimeListView(ListView):
     model = Anime
+    context_object_name = "anime_set"
 
 
 class AnimeDetailView(DetailView):
     model = Anime
+    context_object_name = "anime"
     
 
 
@@ -23,8 +25,16 @@ class AnimeDeleteView(LoginRequiredMixin, DeleteView):
 
     success_url = '/anime'
 
-@login_required
 
+
+
+class GenreDetailView(DetailView):
+    model = Genre
+    context_object_name = "genre"
+    
+
+
+@login_required
 def WatchListAdd(request, id):
     request.user.watchlist.watched.add(Anime.objects.get(id=id))
     return redirect(f'/anime/{id}')
