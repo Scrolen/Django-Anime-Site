@@ -17,9 +17,8 @@ Out[22]: <Anime: Bleach>
 
 TO DO--------------------------------
 -case insensitive username
--landing page
 -front page
 -pagination
 -user settings page
-- anime search
+- anime search // WORKING ON
 -search by multiple GENRES

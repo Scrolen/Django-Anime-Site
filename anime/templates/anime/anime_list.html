@@ -2,11 +2,43 @@
 
 {% block content %}
     <h2>Anime</h2>
-    <ul>
-        {% for anime in anime_set %}
-        <a href="{% url 'anime-detail' anime.slug %}">
-            <li>{{ anime.name }}</li>
-        </a>
-        {% endfor %}
-    </ul>
+  
+
+    <div class="container">
+        <div class="container">
+            <div class="row row-cols-3">
+                {% for anime in anime_set %}
+                <div class="col">
+
+                    <div class="card mb-3" style="max-width: 540px;">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src={{ anime.image.url }} class="img-fluid rounded-start" alt="...">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ anime.name }}</h5>
+                                    <p class="card-text">{{ anime.description|truncatewords:20 }}</p>
+                                    <a href="{% url 'anime-detail' anime.slug %}" class="stretched-link"></a>
+                                    <p class="card-text"><small class="text-muted">Rank:2 | Users: {{ anime.user_count }}</small></p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+
+
+
+                
+                    <!-- <a href="{% url 'anime-detail' anime.slug %}">{{ anime.name }}</a> -->
+                </div>
+                {% endfor %}
+            </div>
+          </div>
+    </div>
+
+
 {% endblock content %}

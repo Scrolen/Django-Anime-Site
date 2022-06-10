@@ -3,10 +3,13 @@ from django.http import HttpResponse
 from django.views import View
 from django.views.generic import ListView, DeleteView, DetailView
 from django.contrib.auth.decorators import login_required
+from django.db.models import Count
 
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Anime, Genre
 # Create your views here.
+
+
 
 
 class AnimeListView(ListView):
@@ -37,11 +40,11 @@ class GenreDetailView(DetailView):
 @login_required
 def WatchListAdd(request, id):
     request.user.watchlist.watched.add(Anime.objects.get(id=id))
-    return redirect(f'/anime/{id}')
+    return redirect(f'/anime/{Anime.objects.get(id=id).slug}')
 
 def WatchListDelete(request, id):
     request.user.watchlist.watched.remove(Anime.objects.get(id=id))
-    return redirect(f'/anime/{id}')
+    return redirect(f'/anime/{Anime.objects.get(id=id).slug}')
 
 # def AnimeDeleteView(request, id):
 #     anime = Anime.objects.get(id=id)

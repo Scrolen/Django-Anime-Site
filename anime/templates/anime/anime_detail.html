@@ -6,7 +6,7 @@
     <li>{{ anime.user_count }}</li>
     <li>{{ anime.episodes }}</li>
     <li>{{ anime.genres.all }}</li>
-    <img src={{ object.image.url }}>
+    <img src={{ anime.image.url }}>
 
     {% if user.is_authenticated %}
         {% if anime in user.watchlist.watched.all %}

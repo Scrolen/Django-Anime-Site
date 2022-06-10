@@ -2,7 +2,8 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-    <div>
+
+ 
         <form method="POST">
             {% csrf_token %}
             <fieldset>
@@ -13,10 +14,8 @@
                 <button class="btn" type="submit">Login</button>
             </div>
         </form>
-        <div>
             <small>
                 <a href="{% url 'register' %}">Register</a>
             </small>
-        </div>
-    </div>
+
 {% endblock content %}
