@@ -6,6 +6,9 @@
     <li>{{ anime.user_count }}</li>
     <li>{{ anime.episodes }}</li>
     <li>{{ anime.genres.all }}</li>
+    <li>{{ anime.status }}</li>
+    <li>{{ anime.type }}</li>
+    <li>{{ anime.season }}</li>
     <img src={{ anime.image.url }}>
 
     {% if user.is_authenticated %}

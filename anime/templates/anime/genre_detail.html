@@ -9,4 +9,8 @@
         </a>
         {% endfor %}
     </ul>
+
+    {% if is_paginated %}
+    {% include "pagination.html" %}
+    {% endif %}
 {% endblock content %} 

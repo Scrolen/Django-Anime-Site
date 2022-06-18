@@ -26,7 +26,7 @@ def register(request):
         form = UserRegisterForm()
     return render(request, 'users/register.html',{'form':form})
 
-@login_required #this is a decorator, makes the user have to be logged in to use the view. different in class based views
+ #this is a decorator, makes the user have to be logged in to use the view. different in class based views
 def profile_view(request, username):
     user = User.objects.get(username=username)
     return render(request, 'users/profile.html',{'profile':user}) #PROFILE IS THE NAME OF THE USERS PROFILE YOU ARE VIEWING

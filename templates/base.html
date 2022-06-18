@@ -32,6 +32,17 @@
                               <li><a class="dropdown-item" href="{% url 'anime-genre' 'action' %}">Genre Search</a></li>
                             </ul>
                           </li>
+                          <li class="nav-item dropdown">
+                            <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                              Genres
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                              <li><a class="dropdown-item" href="{% url 'anime-home' %}">All Anime</a></li>
+                              <li><a class="dropdown-item" href="#">Top Anime</a></li>
+                              <li><a class="dropdown-item" href="{% url 'anime-genre' 'action' %}">Genre Search</a></li>
+                            </ul>
+                          </li>
+                        
                     </ul>
                     </div>
                     <form class="d-flex" role="search">

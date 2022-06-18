@@ -22,3 +22,6 @@ TO DO--------------------------------
 -user settings page
 - anime search // WORKING ON
 -search by multiple GENRES
+
+
+'/media/anime_imgs/default.jpg'

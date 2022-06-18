@@ -4,6 +4,8 @@ from django.views import View
 from django.views.generic import ListView, DeleteView, DetailView
 from django.contrib.auth.decorators import login_required
 from django.db.models import Count
+from django.core.paginator import Paginator
+from django.views.generic.list import MultipleObjectMixin
 
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Anime, Genre
@@ -13,6 +15,7 @@ from .models import Anime, Genre
 
 
 class AnimeListView(ListView):
+    paginate_by = 50
     model = Anime
     context_object_name = "anime_set"
 
@@ -31,10 +34,14 @@ class AnimeDeleteView(LoginRequiredMixin, DeleteView):
 
 
 
-class GenreDetailView(DetailView):
+class GenreDetailView(DetailView, MultipleObjectMixin):
     model = Genre
-    context_object_name = "genre"
-    
+    paginate_by = 10
+
+    def get_context_data(self, **kwargs):
+        object_list = self.get_object().anime_set.all().order_by('name').values()
+        context = super(GenreDetailView,self).get_context_data(object_list=object_list, **kwargs)
+        return context
 
 
 @login_required
